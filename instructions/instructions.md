@@ -19,7 +19,7 @@
 
 - Questions: We will be using Piazza for all questions.
 
-- Collaboration: The assignment must be done by yourself. Copying code (from others) is considered cheating. [Read this](http://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/dontcheat.html) for more info on what is OK and what is not. Please help us all have a good semester by not doing this.
+- Collaboration: The assignment may be done by yourself or with one partner. Copying code (from others) is considered cheating. [Read this](http://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/dontcheat.html) for more info on what is OK and what is not. Please help us all have a good semester by not doing this.
 
 - This project is to be done on the [Linux lab machines ](https://csl.cs.wisc.edu/docs/csl/2012-08-16-instructional-facilities/), so you can learn more about programming in C on a typical UNIX-based platform (Linux). Your solution will be tested on these machines.
 
