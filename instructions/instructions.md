@@ -34,6 +34,7 @@
         |---- xv6-public
               | ---- all the contents of xv6 with your modifications
     ```
+  - **Group project handin:** each group only needs to hand in once. To submit, one person should put the code in their handin directory (the other should be empty).
 
 - **NOTE: For this project, a [modified xv6 with multithreading feature](https://git.doit.wisc.edu/cdis/cs/courses/cs537/spring24/public/p5/-/tree/main/xv6-public?ref_type=heads) is provided. Please do not work on the original xv6.**
 
