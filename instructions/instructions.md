@@ -138,7 +138,7 @@ User-space sleep lock interface:
 * Initialize the Lock:
   Define a function `minit` used to initialize a `mutex`. This function sets the lock to an unlocked state and prepares any necessary internal structures. 
   ```c
-  void minit(&mutex);
+  void minit(mutex* m);
   ```
 * Acquiring the Lock (`macquire`):
   A thread calls `macquire` to acquire lock. If the lock is available, the thread acquires it and continues execution. If another thread holds the lock, the calling thread is **put to sleep** until the lock becomes available.
