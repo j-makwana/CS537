@@ -2,7 +2,9 @@
 #define PROC
 
 #define MAXPROCNAMELEN 16
+
 #include "spinlock.h"
+#include "mutex.h"
 
 // Per-CPU state
 struct cpu {
@@ -57,12 +59,15 @@ struct proc {
   char name[MAXPROCNAMELEN];               // Process name (debugging)
   int nclone;                  // Number of clone calls on this proc (for grading)
   int sleepticks;              // Number of ticks left the process should sleep for
+  int nice;
+  //mutex *m[MAXPROCNAMELEN];                // Mutexes
+  int original_priority[MAXPROCNAMELEN];
 };
 typedef struct {
   struct spinlock lock;
   struct proc proc[NPROC];
 } Ptable;
-
+extern Ptable ptable;
 // Process memory is laid out contiguously, low addresses first:
 //   text
 //   original data and bss

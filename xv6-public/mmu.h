@@ -1,6 +1,5 @@
 // This file contains definitions for the
 // x86 memory management unit (MMU).
-
 // Eflags register
 #define FL_IF           0x00000200      // Interrupt Enable
 
@@ -20,7 +19,6 @@
 
 // cpu->gdt[NSEGS] holds the above segments.
 #define NSEGS     6
-
 #ifndef __ASSEMBLER__
 // Segment Descriptor
 struct segdesc {

@@ -3,6 +3,8 @@
 #include "fcntl.h"
 #include "user.h"
 #include "x86.h"
+#include "spinlock.h"
+#include "mutex.h"
 
 char*
 strcpy(char *s, const char *t)
@@ -104,3 +106,13 @@ memmove(void *vdst, const void *vsrc, int n)
     *dst++ = *src++;
   return vdst;
 }
+void minit(mutex *m) {
+
+    m->locked = 0;  // Just initialize the locked state to 0
+    m->lk.name = "mutex";
+    m->lk.locked = 0;
+    m->lk.cpu = 0;
+    m->holder = 0;
+
+}
+

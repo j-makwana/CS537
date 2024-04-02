@@ -1,5 +1,7 @@
+#include "mutex.h"
 struct stat;
 struct rtcdate;
+
 
 // system calls
 int fork(void);
@@ -24,6 +26,9 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int clone(void (*)(void*), void*, void*);
+void macquire( mutex*);
+void mrelease( mutex*);
+int nice(int);
 
 // ulib.c
 int stat(const char*, struct stat*);
@@ -38,3 +43,4 @@ void* memset(void*, int, uint);
 void* malloc(uint);
 void free(void*);
 int atoi(const char*);
+void minit(mutex*);
