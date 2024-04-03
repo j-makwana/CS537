@@ -122,12 +122,7 @@ void sys_macquire(void)
     }
     if (lk->holder != 0 && myproc()->nice < lk->holder->nice)
     {
-      for(int i=0;i<MAXPROCNAMELEN;i++){
-        if(lk->holder->original_priority[i]==0){
-          lk->holder->original_priority[i]=lk->holder->nice;
-          break;
-        }
-      }
+      
       // Temporarily elevate the holder's priority
       lk->holder->nice = myproc()->nice;
 
@@ -159,18 +154,12 @@ void sys_mrelease(void)
   uint physical_address = PTE_ADDR(*pte) + offset;
   if (lk->holder == myproc())
   {
+    cprintf("Thread (priority before releasing lock %d) releasing lock\n", lk->holder->nice);
     // Restore the original priority of the holder if it was elevated
-    if (lk->holder->nice != lk->holder->original_priority[0])
-      //restore it to the last full index
-      for(int i=MAXPROCNAMELEN-1;i>=0;i--){
-        if(lk->holder->original_priority[i]!=0){
-          lk->holder->nice=lk->holder->original_priority[i];
-          lk->holder->original_priority[i]=0;
-          break;
-        }
-      }
-    
-    lk->holder = 0; // Clear the mutex holder
+   if(lk->holder->nice != lk->holder->original_priority){
+    lk->holder->nice = lk->holder->original_priority;
+   }
+    lk->holder = 0;
   }
   wakeup((void *)physical_address);
   release(&lk->lk);
@@ -191,7 +180,11 @@ int sys_nice(void)
   if (p->nice > 19)
     p->nice = 19;
 
-  p->original_priority[0] = p->nice;
+  p->original_priority = p->nice;
 
   return 0;
+}
+int sys_getnice(void)
+{
+  return myproc()->nice;
 }

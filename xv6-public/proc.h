@@ -61,7 +61,7 @@ struct proc {
   int sleepticks;              // Number of ticks left the process should sleep for
   int nice;
   //mutex *m[MAXPROCNAMELEN];                // Mutexes
-  int original_priority[MAXPROCNAMELEN];
+  int original_priority;
 };
 typedef struct {
   struct spinlock lock;

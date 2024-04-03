@@ -95,11 +95,7 @@ found:
   p->sleepticks = -1;
   p->chan = 0;
   p->nice = 0;
-  
-  for (int i = 0; i < MAXPROCNAMELEN; i++)
-  {
-    p->original_priority[i] = 0;
-  }
+  p->original_priority = 0;
 
   release(&ptable.lock);
 
